@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20250114154234_InitialCreate")]
+    [Migration("20250115152440_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -40,6 +40,12 @@ namespace API.Data.Migrations
                     b.Property<string>("PictureUrl")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<long>("Price")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("QuantityStock")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Type")
                         .IsRequired()

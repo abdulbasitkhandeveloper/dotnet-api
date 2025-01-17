@@ -14,22 +14,6 @@ builder.Services.AddDbContext<StoreContext>(opt => {
 
 var app = builder.Build();
 
-// Create a scope to resolve scoped services
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    try
-    {
-        var context = services.GetRequiredService<StoreContext>();
-        context.Database.EnsureCreated(); // Ensure the database is created
-    }
-    catch (Exception ex)
-    {
-        // Handle exceptions (e.g., logging)
-        Console.WriteLine($"An error occurred while creating the database: {ex.Message}");
-    }
-}
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -58,6 +42,8 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast");
+
+DbInitializer.initDb(app);
 
 app.Run();
 

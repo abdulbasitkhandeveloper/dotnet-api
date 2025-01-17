@@ -38,6 +38,12 @@ namespace API.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<long>("Price")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("QuantityStock")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("TEXT");
