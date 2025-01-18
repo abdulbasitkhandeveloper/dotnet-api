@@ -1,1 +1,10 @@
-{}
+{
+    "osfdigital.wingman.knowledgeBaseSettings": {
+        "salesforceDevEnabled": true,
+        "salesforceHelpEnabled": false,
+        "indexedWorkspaceEnabled": false,
+        "omsSearchEnabled": false,
+        "composableEnabled": false,
+        "sfccEnabled": false
+    }
+}
