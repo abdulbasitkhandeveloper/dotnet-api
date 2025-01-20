@@ -15,7 +15,9 @@ namespace API.Data
             var context = scope.ServiceProvider.GetRequiredService<StoreContext>()
                 ?? throw new InvalidOperationException("Fail to retrieve store context");
 
-                SeedData(context);
+                Console.WriteLine("Seeding data...");
+            SeedData(context);
+            Console.WriteLine("Data seeding completed.");
          }
 
         private static void SeedData(StoreContext context)
