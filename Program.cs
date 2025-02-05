@@ -1,4 +1,5 @@
 using API.Data;
+using API.middleware;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,8 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
+app.UseMiddleware<ExceptionMiddleware>();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -29,7 +32,7 @@ app.UseCors(opt =>
 {
     opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
 });
-
+ 
 app.MapControllers();
 
 DbInitializer.initDb(app);
